@@ -1,0 +1,103 @@
+1. User Registration
+URL: /register
+Method: POST
+Description: Register a new user.
+Request Body:
+
+{
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "password": "password123"
+}
+Response:
+
+{
+  "id": 1,
+  "message": "Registration successful"
+}
+2. User Login
+URL: /login
+Method: POST
+Description: Authenticate user credentials and generate a JWT token.
+Request Body:
+
+{
+  "email": "johndoe@example.com",
+  "password": "password123"
+}
+Response:
+
+{
+  "token": "<JWT_TOKEN>",
+  "message": "Login successful"
+}
+3. Get User Profile
+URL: /profile
+Method: GET
+Description: Get user profile information.
+Authentication: Bearer Token (Include JWT token in the Authorization header)
+Response:
+
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "johndoe@example.com"
+}
+4. Create Room
+URL: /rooms
+Method: POST
+Description: Create a new room.
+Request Body:
+
+{
+  "room_number": "101",
+  "capacity": 4,
+  "amenities": "TV, Wi-Fi"
+}
+Response:
+
+{
+  "id": 1,
+  "message": "Room added successfully"
+}
+5. Delete Room
+URL: /rooms/:id
+Method: DELETE
+Description: Delete a room by ID.
+Authentication: Bearer Token (Include JWT token in the Authorization header)
+Response:
+
+{
+  "message": "Room deleted successfully"
+}
+6. Update Room Availability
+URL: /rooms/:id/availability
+Method: PUT
+Description: Update the availability of a room on a specific date.
+Request Body:
+
+{
+  "date": "2023-07-20",
+  "available": true
+}
+Response:
+
+{
+  "message": "Room availability updated successfully"
+}
+7. Book a Room
+URL: /rooms/:id/bookings
+Method: POST
+Description: Book a room for a specific date.
+Request Body:
+
+{
+  "date": "2023-07-20"
+}
+Authentication: Bearer Token (Include JWT token in the Authorization header)
+Response:
+
+{
+  "id": 1,
+  "message": "Booking successful"
+}
